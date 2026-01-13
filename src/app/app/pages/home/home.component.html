@@ -1,0 +1,555 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container-custom">
+    <div class="hero-content">
+      <div class="hero-text animate-fade-in-up">
+        <div class="hero-badge">
+          <span class="badge-text">🏆 Meilleure Salle 2024</span>
+        </div>
+        <h1 class="hero-title">
+          TRANSFORMEZ VOTRE CORPS, 
+          <span class="text-gradient-orange">RENFORCEZ VOTRE ESPRIT</span>
+        </h1>
+        <p class="hero-subtitle">
+          Rejoignez POWER HOUSE, la référence du fitness à Beni Mellal. 
+          Équipements dernier cri, coachs certifiés et communauté motivante.
+        </p>
+        <div class="hero-actions">
+          <a routerLink="/abonnements" class="btn-orange">
+            <i class="bi bi-lightning-charge"></i>
+            S'inscrire maintenant
+          </a>
+          <a href="#equipements" class="btn-outline-orange">
+            <i class="bi bi-eye"></i>
+            Visite Virtuelle
+          </a>
+          <a href="tel:0651974963" class="btn-outline-orange">
+            <i class="bi bi-telephone"></i>
+            06 51 97 49 63
+          </a>
+        </div>
+      </div>
+      <div class="hero-image animate-fade-in-up" style="animation-delay: 0.2s">
+        <div class="image-wrapper">
+          <img src="../../../../assets/powergymHeader.jpg" alt="Salle Power House Beni Mellal" class="hero-img">
+          <div class="floating-stats">
+            <div class="stat-item">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Machines</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Salles Spécialisées</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Satisfaction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section section-padding bg-black">
+  <div class="container-custom">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="bi bi-people-fill"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">500+</h3>
+          <p class="stat-label">Membres Actifs</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="bi bi-award-fill"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">10+</h3>
+          <p class="stat-label">Coachs Certifiés</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="bi bi-calendar-check-fill"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">15+</h3>
+          <p class="stat-label">Cours Quotidiens</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="bi bi-star-fill"></i>
+        </div>
+        <div class="stat-content">
+          <h3 class="stat-number">4.9/5</h3>
+          <p class="stat-label">Avis Google</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🌟 POURQUOI NOUS CHOISIR</span>
+      </div>
+      <h2 class="section-title">
+        L'expérience <span class="text-gradient-orange">POWER HOUSE</span>
+      </h2>
+      <p class="section-subtitle">
+        Plus qu'une salle de sport, un espace de transformation complète
+      </p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <i [class]="feature.icon"></i>
+        </div>
+        <h3 class="feature-title">{{feature.title}}</h3>
+        <p class="feature-description">{{feature.description}}</p>
+        <div class="feature-hover">
+          <a href="#" class="feature-link">Découvrir →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Équipements Section -->
+<section id="equipements" class="equipment-section section-padding">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>💪 ÉQUIPEMENTS PREMIUM</span>
+      </div>
+      <h2 class="section-title">
+        Des machines <span class="text-gradient-orange">professionnelles</span>
+      </h2>
+      <p class="section-subtitle">
+        Technologie de pointe pour des résultats optimaux
+      </p>
+    </div>
+    
+    <div class="equipment-grid">
+      <div class="equipment-card">
+        <div class="equipment-image">
+          <img src="../../../../assets/musculation-equipment.jpg" alt="Zone Musculation">
+          <div class="equipment-overlay">
+            <span class="equipment-badge">Nouveau</span>
+          </div>
+        </div>
+        <div class="equipment-content">
+          <h3>Zone Musculation Complète</h3>
+          <ul class="equipment-list">
+            <li><i class="bi bi-check-circle"></i> Machines guidées Technogym</li>
+            <li><i class="bi bi-check-circle"></i> Poids libres jusqu'à 50kg</li>
+            <li><i class="bi bi-check-circle"></i> Racks de powerlifting</li>
+            <li><i class="bi bi-check-circle"></i> Bancs ajustables</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="equipment-card">
+        <div class="equipment-image">
+          <img src="../../../../assets/cardio-equipment.jpg" alt="Zone Cardio">
+          <div class="equipment-overlay">
+            <span class="equipment-badge">High-Tech</span>
+          </div>
+        </div>
+        <div class="equipment-content">
+          <h3>Espace Cardio Connecté</h3>
+          <ul class="equipment-list">
+            <li><i class="bi bi-check-circle"></i> Tapis de course dernier cri</li>
+            <li><i class="bi bi-check-circle"></i> Vélo elliptique avec écrans</li>
+            <li><i class="bi bi-check-circle"></i> Rameurs Concept2</li>
+            <li><i class="bi bi-check-circle"></i> Steppers professionnels</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="equipment-card">
+        <div class="equipment-image">
+          <img src="../../../../assets/fonctionnel-equipment.jpg" alt="Zone Fonctionnel">
+          <div class="equipment-overlay">
+            <span class="equipment-badge">Populaire</span>
+          </div>
+        </div>
+        <div class="equipment-content">
+          <h3>Zone Training Fonctionnel</h3>
+          <ul class="equipment-list">
+            <li><i class="bi bi-check-circle"></i> Kettlebells et medecine balls</li>
+            <li><i class="bi bi-check-circle"></i> TRX et suspension training</li>
+            <li><i class="bi bi-check-circle"></i> Boxes pliométriques</li>
+            <li><i class="bi bi-check-circle"></i> Cordes de battle rope</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Salles Spécialisées -->
+<section class="rooms-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>🥋 ESPACES DÉDIÉS</span>
+      </div>
+      <h2 class="section-title">
+        Nos salles <span class="text-gradient-orange">spécialisées</span>
+      </h2>
+      <p class="section-subtitle">
+        Des espaces aménagés pour chaque discipline
+      </p>
+    </div>
+    
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-image">
+          <img src="../../../../assets/taekwondo-room.jpg" alt="Salle Taekwondo">
+        </div>
+        <div class="room-content">
+          <div class="room-header">
+            <span class="room-badge">Enfants & Adultes</span>
+            <h3>Salle Taekwondo</h3>
+          </div>
+          <p class="room-description">
+            Tapis de combat professionnel, équipement de protection complet, 
+            encadrement par des ceintures noires certifiées.
+          </p>
+          <div class="room-info">
+            <span><i class="bi bi-people"></i> Groupes de 15 max</span>
+            <span><i class="bi bi-clock"></i> Sessions de 1h30</span>
+          </div>
+          <a routerLink="/cours" class="room-link">Voir les horaires →</a>
+        </div>
+      </div>
+      
+      <div class="room-card">
+        <div class="room-image">
+          <img src="../../../../assets/kickboxing-room.jpg" alt="Salle Kick-boxing">
+        </div>
+        <div class="room-content">
+          <div class="room-header">
+            <span class="room-badge">Hommes & Femmes</span>
+            <h3>Salle Kick-boxing</h3>
+          </div>
+          <p class="room-description">
+            Rings de combat, sacs de frappe lourds, équipement complet, 
+            coaching par des champions régionaux.
+          </p>
+          <div class="room-info">
+            <span><i class="bi bi-people"></i> Cours personnalisés</span>
+            <span><i class="bi bi-clock"></i> Sessions de 1h</span>
+          </div>
+          <a routerLink="/cours" class="room-link">Réserver un cours →</a>
+        </div>
+      </div>
+      
+      <div class="room-card">
+        <div class="room-image">
+          <img src="../../../../assets/aerobic-room.jpg" alt="Salle Aérobic">
+        </div>
+        <div class="room-content">
+          <div class="room-header">
+            <span class="room-badge">Tous niveaux</span>
+            <h3>Salle Aérobic & Fitness</h3>
+          </div>
+          <p class="room-description">
+            Espace climatisé, miroirs professionnels, sonorisation premium, 
+            cours collectifs énergisants.
+          </p>
+          <div class="room-info">
+            <span><i class="bi bi-people"></i> Jusqu'à 25 personnes</span>
+            <span><i class="bi bi-clock"></i> Sessions de 45min</span>
+          </div>
+          <a routerLink="/cours" class="room-link">Découvrir le programme →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abonnements Preview -->
+<section class="subscriptions-section section-padding">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>💰 OFFRES EXCLUSIVES</span>
+      </div>
+      <h2 class="section-title">
+        Nos <span class="text-gradient-orange">abonnements</span>
+      </h2>
+      <p class="section-subtitle">
+        Des formules adaptées à tous les budgets et objectifs
+      </p>
+    </div>
+    
+    <div class="subscriptions-tabs">
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="musculation">Musculation</button>
+        <button class="tab-btn" data-tab="taekwondo">Taekwondo</button>
+        <button class="tab-btn" data-tab="kickboxing">Kick-boxing</button>
+        <button class="tab-btn" data-tab="aerobic">Aérobic</button>
+        <button class="tab-btn" data-tab="combo">Formules Combo</button>
+      </div>
+      
+      <div class="tabs-content">
+        <div class="tab-pane active" id="musculation">
+          <div class="subscriptions-grid">
+            <app-abonnement-card 
+              *ngFor="let abonnement of abonnementsMusculation"
+              [title]="abonnement.title"
+              [price]="abonnement.price"
+              [period]="abonnement.period"
+              [features]="abonnement.features"
+              [highlighted]="abonnement.highlighted"
+              [ctaText]="abonnement.ctaText">
+            </app-abonnement-card>
+          </div>
+        </div>
+        
+        <!-- Les autres onglets seraient chargés dynamiquement -->
+      </div>
+    </div>
+    
+    <div class="promo-banner">
+      <div class="promo-content">
+        <div class="promo-icon">
+          <i class="bi bi-gift-fill"></i>
+        </div>
+        <div class="promo-text">
+          <h3>OFFRE SPÉCIALE : 1ère séance gratuite !</h3>
+          <p>Réservez votre séance découverte sans engagement</p>
+        </div>
+        <a routerLink="/reservation" class="btn-orange">
+          <i class="bi bi-calendar-plus"></i>
+          Réserver gratuitement
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Témoignages -->
+<section class="testimonials-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>❤️ ILS NOUS FONT CONFIANCE</span>
+      </div>
+      <h2 class="section-title">
+        Témoignages de nos <span class="text-gradient-orange">membres</span>
+      </h2>
+      <p class="section-subtitle">
+        Découvrez les transformations de notre communauté
+      </p>
+    </div>
+    
+    <div class="testimonials-slider">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="../../../../assets/testimonial1.jpg" alt="Ahmed" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>Ahmed R.</h4>
+            <span>Membre depuis 2 ans</span>
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "J'ai perdu 15kg en 6 mois grâce au programme personnalisé. 
+          Les coachs sont incroyables et la communauté très motivante !"
+        </p>
+        <div class="testimonial-before-after">
+          <span>Avant: 95kg</span>
+          <span>→</span>
+          <span>Après: 80kg</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="../../../../assets/testimonial2.jpg" alt="Fatima" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>Fatima Z.</h4>
+            <span>Membre Taekwondo</span>
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Le Taekwondo a changé ma vie. Confiance en soi, discipline et 
+          forme physique. Les cours enfants sont parfaits pour ma fille !"
+        </p>
+        <div class="testimonial-achievement">
+          <i class="bi bi-trophy"></i>
+          <span>Ceinture noire 1er Dan</span>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img src="../../../../assets/testimonial3.jpg" alt="Youssef" class="testimonial-avatar">
+          <div class="testimonial-info">
+            <h4>Youssef L.</h4>
+            <span>Formule Combo</span>
+            <div class="testimonial-rating">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial-text">
+          "Musculation le matin, kick-boxing le soir. La formule combo est 
+          parfaite pour varier les entraînements. Équipements top niveau !"
+        </p>
+        <div class="testimonial-stats">
+          <span><i class="bi bi-lightning-charge"></i> +20kg au développé couché</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Galerie Instagram -->
+<section class="gallery-section section-padding">
+  <div class="container-custom">
+    <div class="section-header">
+      <div class="section-badge">
+        <span>📸 SUIVEZ-NOUS</span>
+      </div>
+      <h2 class="section-title">
+        Notre univers en <span class="text-gradient-orange">photos</span>
+      </h2>
+      <p class="section-subtitle">
+        Découvrez l'ambiance POWER HOUSE sur Instagram
+      </p>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="../../../../assets/gallery1.jpg" alt="Entraînement groupe">
+        <div class="gallery-overlay">
+          <a href="https://instagram.com/Power.House61" target="_blank" class="gallery-link">
+            <i class="bi bi-instagram"></i>
+            ower.House61
+          </a>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../../../assets/gallery2.jpg" alt="Compétition">
+        <div class="gallery-overlay">
+          <span class="gallery-caption">Championnat Régional</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../../../assets/gallery3.jpg" alt="Coaching">
+        <div class="gallery-overlay">
+          <span class="gallery-caption">Coaching Personnalisé</span>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img src="../../../../assets/gallery4.jpg" alt="Communauté">
+        <div class="gallery-overlay">
+          <span class="gallery-caption">Notre Communauté</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="instagram-cta">
+      <a href="https://instagram.com/Power.House61" target="_blank" class="btn-instagram">
+        <i class="bi bi-instagram"></i>
+        Suivre sur Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="final-cta-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="final-cta-content">
+      <div class="cta-text">
+        <h2 class="cta-title">
+          Prêt pour votre <span class="text-gradient-orange">transformation</span> ?
+        </h2>
+        <p class="cta-subtitle">
+          Rejoignez la famille POWER HOUSE dès aujourd'hui
+        </p>
+        <div class="cta-features">
+          <div class="feature">
+            <i class="bi bi-check-circle"></i>
+            <span>Séance découverte gratuite</span>
+          </div>
+          <div class="feature">
+            <i class="bi bi-check-circle"></i>
+            <span>Programme personnalisé offert</span>
+          </div>
+          <div class="feature">
+            <i class="bi bi-check-circle"></i>
+            <span>Sans engagement</span>
+          </div>
+        </div>
+      </div>
+      <div class="cta-actions">
+        <div class="contact-options">
+          <a href="tel:0651974963" class="contact-option">
+            <div class="contact-icon">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
+            <div class="contact-info">
+              <span>Appelez-nous</span>
+              <strong>06 51 97 49 63</strong>
+            </div>
+          </a>
+          <a href="https://maps.google.com/?q=شارع الجيش الملكي، حي الضحى بني ملال" 
+             target="_blank" 
+             class="contact-option">
+            <div class="contact-icon">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="contact-info">
+              <span>Venez nous voir</span>
+              <strong>شارع الجيش الملكي، حي الضحى بني ملال</strong>
+            </div>
+          </a>
+        </div>
+        <div class="action-buttons">
+          <a routerLink="/abonnements" class="btn-orange btn-large">
+            <i class="bi bi-lightning-charge"></i>
+            Voir les abonnements
+          </a>
+          <a routerLink="/reservation" class="btn-outline-orange btn-large">
+            <i class="bi bi-calendar-check"></i>
+            Réserver un essai
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

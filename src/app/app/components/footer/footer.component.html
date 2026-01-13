@@ -1,0 +1,86 @@
+<footer class="footer">
+  <div class="container-custom">
+    <div class="footer-content">
+      <!-- Logo et description -->
+      <div class="footer-section">
+        <div class="footer-logo">
+          <a routerLink="/" class="logo-link">
+            <div class="logo-icon">
+              <i class="bi bi-lightning-charge-fill"></i>
+            </div>
+            <div class="logo-text">
+              <span>POWER</span>
+              <span class="logo-highlight">GYM</span>
+            </div>
+          </a>
+        </div>
+        <p class="footer-description">
+          La salle de sport premium de votre quartier. Équipements modernes, 
+          coachs experts et une communauté motivante pour atteindre vos objectifs.
+        </p>
+        <div class="social-links">
+          <a *ngFor="let social of socialLinks" 
+             [href]="social.url" 
+             class="social-link"
+             target="_blank">
+            <i [class]="social.icon"></i>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Liens rapides -->
+      <div class="footer-section">
+        <h3 class="footer-title">Liens rapides</h3>
+        <ul class="footer-links">
+          <li *ngFor="let link of quickLinks">
+            <a [routerLink]="link.path">{{link.label}}</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Services -->
+      <div class="footer-section">
+        <h3 class="footer-title">Nos services</h3>
+        <ul class="footer-links">
+          <li *ngFor="let service of services">
+            <a href="#">{{service.label}}</a>
+          </li>
+        </ul>
+      </div>
+      
+      <!-- Contact -->
+      <div class="footer-section">
+        <h3 class="footer-title">Contact</h3>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="bi bi-geo-alt"></i>
+            <span>123 Avenue du Sport, 75015 Paris</span>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-telephone"></i>
+            <span>01 23 45 67 89</span>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-envelope"></i>
+            <span>email</span>
+          </div>
+          <div class="contact-item">
+            <i class="bi bi-clock"></i>
+            <span>Lun-Ven: 6h-23h | Sam: 8h-22h | Dim: 9h-20h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        <p>&copy; {{currentYear}} PowerGym. Tous droits réservés.</p>
+      </div>
+      <div class="footer-legal">
+        <div class="legal-links">
+          <a *ngFor="let legal of legalLinks" href="#">{{legal.label}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

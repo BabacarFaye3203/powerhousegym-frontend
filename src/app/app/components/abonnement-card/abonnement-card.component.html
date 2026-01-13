@@ -1,0 +1,29 @@
+<div class="abonnement-card" [class.highlighted]="highlighted">
+  <div class="card-header">
+    <div class="popular-badge" *ngIf="highlighted">
+      <i class="bi bi-star-fill"></i>
+      Populaire
+    </div>
+    <h3 class="card-title">{{title}}</h3>
+    <div class="card-price">
+      <span class="price">{{price}}dh</span>
+      <span class="period">/{{period}}</span>
+    </div>
+  </div>
+  
+  <div class="card-body">
+    <ul class="features-list">
+      <li class="feature-item" *ngFor="let feature of features">
+        <i class="bi bi-check-circle"></i>
+        {{feature}}
+      </li>
+    </ul>
+  </div>
+  
+  <div class="card-footer">
+    <a routerLink="/contact" [queryParams]="{abonnement: title}" 
+       class="btn-card" [class.btn-primary]="highlighted" [class.btn-secondary]="!highlighted">
+      {{ctaText}}
+    </a>
+  </div>
+</div>

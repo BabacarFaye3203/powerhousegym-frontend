@@ -1,0 +1,153 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container-custom">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Trouvez l'abonnement 
+          <span class="text-gradient-orange">parfait</span> pour vous
+        </h1>
+        <p class="hero-subtitle">
+          Choisissez parmi nos formules flexibles et profitez d'équipements premium, 
+          de coachs experts et d'une communauté motivante.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="abonnements-section section-padding">
+  <div class="container-custom">
+
+    <div *ngFor="let category of categories" class="mb-5">
+
+      <div class="section-header text-center">
+        <h2 class="section-title">{{ category.name }}</h2>
+        <p class="section-subtitle">{{ category.description }}</p>
+      </div>
+
+      <div class="abonnements-grid">
+        <app-abonnement-card
+          *ngFor="let abonnement of category.abonnements"
+          [title]="abonnement.title"
+          [price]="abonnement.price"
+          [period]="abonnement.period"
+          [features]="abonnement.features"
+          [highlighted]="abonnement.highlighted"
+          [ctaText]="abonnement.ctaText">
+        </app-abonnement-card>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- 
+<section class="comparatif-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Comparatif des abonnements</h2>
+      <p class="section-subtitle">Tout ce que vous devez savoir pour faire le bon choix</p>
+    </div>
+
+    <div class="comparatif-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Abonnement</th>
+            <th>Durée</th>
+            <th *ngFor="let feature of comparatifFeatures">{{ feature.name }}</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <ng-container *ngFor="let category of categories">
+            <tr class="category-row">
+              <td class="category-title">{{ category.name }}</td>
+            </tr>
+            <tr *ngFor="let abonnement of category.abonnements" [class.highlighted]="abonnement.highlighted">
+              <td>{{ abonnement.title }}</td>
+              <td>{{ abonnement.period }}</td>
+              <td *ngFor="let feature of comparatifFeatures">
+                <i *ngIf="hasFeature(abonnement, feature.key)" class="bi bi-check-circle"></i>
+                <i *ngIf="!hasFeature(abonnement, feature.key)" class="bi bi-x-circle"></i>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section> -->
+
+<!-- Avantages -->
+<section class="avantages-section section-padding">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Avantages PowerGym</h2>
+      <p class="section-subtitle">Des avantages exclusifs pour tous nos membres</p>
+    </div>
+
+    <div class="avantages-grid">
+      <div class="avantage-card" *ngFor="let avantage of avantages">
+        <div class="avantage-icon">
+          <i [class]="avantage.icon"></i>
+        </div>
+        <h3 class="avantage-title">{{avantage.title}}</h3>
+        <p class="avantage-description">{{avantage.description}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Questions fréquentes</h2>
+      <p class="section-subtitle">Trouvez rapidement des réponses à vos questions</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item" *ngFor="let faq of faqs">
+        <div class="faq-question">
+          <h3>{{faq.question}}</h3>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>{{faq.answer}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <a routerLink="/contact" class="btn-orange">
+        <i class="bi bi-question-circle"></i>
+        Une autre question ?
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section section-padding">
+  <div class="container-custom">
+    <div class="cta-content">
+      <h2 class="cta-title">
+        Prêt à <span class="text-gradient-orange">commencer</span> ?
+      </h2>
+      <p class="cta-text">
+        Rejoignez-nous aujourd'hui et bénéficiez d'une séance d'essai gratuite
+      </p>
+      <div class="cta-actions">
+        <a routerLink="/contact" class="btn-orange">
+          <i class="bi bi-calendar-check"></i>
+          Réserver un essai gratuit
+        </a>
+        <a routerLink="/cours" class="btn-outline-orange">
+          <i class="bi bi-play-circle"></i>
+          Voir les cours
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

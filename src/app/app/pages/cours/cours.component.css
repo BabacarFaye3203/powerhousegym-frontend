@@ -1,0 +1,436 @@
+/* Hero Section */
+.hero-section {
+  padding: 100px 0 50px;
+  background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--off-white);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Filters */
+.filters-container {
+  background: var(--medium-gray);
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid var(--light-gray);
+}
+
+.filter-group {
+  margin-bottom: 25px;
+}
+
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.filter-label i {
+  color: var(--primary-orange);
+}
+
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  background: var(--dark-gray);
+  border: 2px solid var(--light-gray);
+  border-radius: 50px;
+  color: var(--off-white);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-orange);
+  color: var(--primary-orange);
+}
+
+.filter-btn.active {
+  background: var(--primary-orange);
+  border-color: var(--primary-orange);
+  color: var(--white);
+}
+
+.filter-btn.active:hover {
+  background: var(--dark-orange);
+}
+
+/* Cours Grid */
+.cours-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cours-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cours-subtitle {
+  font-size: 16px;
+  color: var(--off-white);
+}
+
+.cours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.cours-card {
+  background: var(--medium-gray);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.cours-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary-orange);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.cours-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cours-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.cours-card:hover .cours-image img {
+  transform: scale(1.05);
+}
+
+.cours-badges {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge-category,
+.badge-niveau {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-category {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.badge-category i {
+  color: var(--primary-orange);
+}
+
+.badge-niveau {
+  color: var(--white);
+}
+
+.cours-content {
+  padding: 25px;
+}
+
+.cours-header {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.cours-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--white);
+}
+
+.cours-coach {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary-orange);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.cours-coach i {
+  font-size: 16px;
+}
+
+.cours-description {
+  color: var(--off-white);
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.cours-info {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--off-white);
+  font-size: 14px;
+}
+
+.info-item i {
+  color: var(--primary-orange);
+}
+
+.cours-horaires h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.horaires-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.horaire-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--dark-gray);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.jour {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.heure {
+  color: var(--primary-orange);
+  font-weight: 600;
+}
+
+.cours-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cours-actions .btn-orange,
+.cours-actions .btn-outline-orange {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.no-results i {
+  font-size: 64px;
+  color: var(--light-gray);
+  margin-bottom: 20px;
+}
+
+.no-results h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.no-results p {
+  color: var(--off-white);
+  margin-bottom: 30px;
+}
+
+/* Coachs */
+.coachs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.coach-card {
+  background: var(--medium-gray);
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  transition: all 0.3s ease;
+}
+
+.coach-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-orange);
+}
+
+.coach-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.coach-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.coach-card:hover .coach-image img {
+  transform: scale(1.05);
+}
+
+.coach-info {
+  padding: 25px;
+}
+
+.coach-name {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--white);
+}
+
+.coach-specialite {
+  color: var(--primary-orange);
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.coach-description {
+  color: var(--off-white);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  font-size: 18px;
+  color: var(--off-white);
+  margin-bottom: 40px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .cours-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .cours-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-options {
+    justify-content: center;
+  }
+  
+  .coachs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cours-actions {
+    flex-direction: column;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-actions .btn-orange,
+  .cta-actions .btn-outline-orange {
+    width: 100%;
+    max-width: 300px;
+  }
+}

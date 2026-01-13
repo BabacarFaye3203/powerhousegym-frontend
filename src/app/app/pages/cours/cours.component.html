@@ -1,0 +1,221 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container-custom">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Nos <span class="text-gradient-orange">cours collectifs</span>
+        </h1>
+        <p class="hero-subtitle">
+          Découvrez notre programmation variée animée par des coachs experts. 
+          Trouvez le cours parfait pour vos objectifs.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Filtres -->
+<section class="filters-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="filters-container">
+      <div class="filter-group">
+        <label class="filter-label">
+          <i class="bi bi-filter"></i>
+          Catégorie
+        </label>
+        <div class="filter-options">
+          <button class="filter-btn" 
+                  [class.active]="selectedCategory === 'all'"
+                  (click)="selectedCategory = 'all'">
+            Tous
+          </button>
+          <button *ngFor="let category of categories"
+                  class="filter-btn"
+                  [class.active]="selectedCategory === category.id"
+                  (click)="selectedCategory = category.id">
+            <i [class]="category.icon"></i>
+            {{category.name}}
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-label">
+          <i class="bi bi-person-badge"></i>
+          Niveau
+        </label>
+        <div class="filter-options">
+          <button class="filter-btn" 
+                  [class.active]="selectedLevel === 'all'"
+                  (click)="selectedLevel = 'all'">
+            Tous
+          </button>
+          <button *ngFor="let niveau of niveaux"
+                  class="filter-btn"
+                  [class.active]="selectedLevel === niveau.id"
+                  (click)="selectedLevel = niveau.id"
+                  [style.border-color]="niveau.color">
+            {{niveau.name}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Liste des cours -->
+<section class="cours-section section-padding">
+  <div class="container-custom">
+    <div class="cours-header">
+      <h2 class="cours-title">{{filteredCours.length}} cours disponibles</h2>
+      <p class="cours-subtitle">Trouvez votre cours idéal</p>
+    </div>
+
+    <div class="cours-grid">
+      <div class="cours-card" *ngFor="let cours of filteredCours">
+        <div class="cours-image">
+          <img [src]="cours.image" [alt]="cours.title">
+          <div class="cours-badges">
+            <span class="badge-category">
+              <i [class]="getCategoryIcon(cours.category)"></i>
+              {{getCategoryName(cours.category)}}
+            </span>
+            <span class="badge-niveau" [style.background]="getNiveauColor(cours.niveau)">
+              {{getNiveauName(cours.niveau)}}
+            </span>
+          </div>
+        </div>
+
+        <div class="cours-content">
+          <div class="cours-header">
+            <h3 class="cours-title">{{cours.title}}</h3>
+            <div class="cours-coach">
+              <i class="bi bi-person-circle"></i>
+              Coach {{cours.coach}}
+            </div>
+          </div>
+
+          <p class="cours-description">{{cours.description}}</p>
+
+          <div class="cours-info">
+            <div class="info-item">
+              <i class="bi bi-clock"></i>
+              <span>{{cours.duree}} min</span>
+            </div>
+            <div class="info-item">
+              <i class="bi bi-people"></i>
+              <span>{{cours.places}} places max</span>
+            </div>
+          </div>
+
+          <div class="cours-horaires">
+            <h4>Horaires :</h4>
+            <div class="horaires-list">
+              <div class="horaire-item" *ngFor="let horaire of cours.horaires">
+                <span class="jour">{{horaire.jour}}</span>
+                <span class="heure">{{horaire.heure}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cours-actions">
+            <a [routerLink]="['/reservation']" [queryParams]="{coursId: cours.id}" class="btn-orange">
+              <i class="bi bi-calendar-plus"></i>
+              Réserver
+            </a>
+            <button class="btn-outline-orange">
+              <i class="bi bi-info-circle"></i>
+              Détails
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aucun résultat -->
+    <div *ngIf="filteredCours.length === 0" class="no-results">
+      <i class="bi bi-calendar-x"></i>
+      <h3>Aucun cours trouvé</h3>
+      <p>Essayez de modifier vos critères de recherche</p>
+      <button class="btn-orange" (click)="selectedCategory = 'all'; selectedLevel = 'all'">
+        Réinitialiser les filtres
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Coachs Section -->
+<section class="coachs-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Nos coachs experts</h2>
+      <p class="section-subtitle">Rencontrez notre équipe de professionnels passionnés</p>
+    </div>
+
+    <div class="coachs-grid">
+      <div class="coach-card">
+        <div class="coach-image">
+          <img src="assets/images/coach1.jpg" alt="Marc Dubois">
+        </div>
+        <div class="coach-info">
+          <h3 class="coach-name">Marc Dubois</h3>
+          <p class="coach-specialite">CrossFit & Force</p>
+          <p class="coach-description">
+            Ancien champion de France de CrossFit, Marc vous poussera à vos limites.
+          </p>
+        </div>
+      </div>
+
+      <div class="coach-card">
+        <div class="coach-image">
+          <img src="assets/images/coach2.jpg" alt="Sophie Martin">
+        </div>
+        <div class="coach-info">
+          <h3 class="coach-name">Sophie Martin</h3>
+          <p class="coach-specialite">Yoga & Bien-être</p>
+          <p class="coach-description">
+            Instructrice certifiée avec 10 ans d'expérience en yoga thérapeutique.
+          </p>
+        </div>
+      </div>
+
+      <div class="coach-card">
+        <div class="coach-image">
+          <img src="assets/images/coach3.jpg" alt="Thomas Leroy">
+        </div>
+        <div class="coach-info">
+          <h3 class="coach-name">Thomas Leroy</h3>
+          <p class="coach-specialite">Cardio & Endurance</p>
+          <p class="coach-description">
+            Spécialiste en entraînement fonctionnel et préparation physique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section section-padding">
+  <div class="container-custom">
+    <div class="cta-content">
+      <h2 class="cta-title">
+        Essayez votre <span class="text-gradient-orange">premier cours</span> gratuitement
+      </h2>
+      <p class="cta-text">
+        Pas encore convaincu ? Réservez une séance d'essai gratuite
+      </p>
+      <div class="cta-actions">
+        <a routerLink="/reservation" class="btn-orange">
+          <i class="bi bi-calendar-check"></i>
+          Réserver un cours d'essai
+        </a>
+        <a routerLink="/contact" class="btn-outline-orange">
+          <i class="bi bi-telephone"></i>
+          Nous contacter
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

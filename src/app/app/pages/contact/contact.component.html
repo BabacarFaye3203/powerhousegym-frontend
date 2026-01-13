@@ -1,0 +1,288 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container-custom">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Contactez<span class="text-gradient-orange">-nous</span>
+        </h1>
+        <p class="hero-subtitle">
+          Une question, une suggestion ou besoin d'aide ? Notre équipe est à votre écoute.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Container -->
+<section class="contact-section section-padding">
+  <div class="container-custom">
+    <div class="contact-container">
+      <!-- Formulaire de contact -->
+      <div class="contact-form-container">
+        <div class="form-header">
+          <h2 class="form-title">Envoyez-nous un message</h2>
+          <p class="form-subtitle">Nous vous répondrons dans les plus brefs délais</p>
+        </div>
+        
+        <form class="contact-form" (ngSubmit)="submitContact()" #contactForm="ngForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nom complet *</label>
+              <input type="text" 
+                     class="form-input" 
+                     [(ngModel)]="contact.nom" 
+                     name="nom"
+                     placeholder="Votre nom et prénom"
+                     required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" 
+                     class="form-input" 
+                     [(ngModel)]="contact.email" 
+                     name="email"
+                     placeholder="votre@email.com"
+                     required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Téléphone</label>
+              <input type="tel" 
+                     class="form-input" 
+                     [(ngModel)]="contact.telephone" 
+                     name="telephone"
+                     placeholder="06 12 34 56 78">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Sujet *</label>
+              <select class="form-select" 
+                      [(ngModel)]="contact.sujet" 
+                      name="sujet"
+                      required>
+                <option value="">Choisir un sujet</option>
+                <option *ngFor="let sujet of sujets" [value]="sujet">{{sujet}}</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label class="form-label">Message *</label>
+            <textarea class="form-textarea" 
+                      [(ngModel)]="contact.message" 
+                      name="message"
+                      placeholder="Décrivez votre demande en détails..."
+                      rows="5"
+                      required></textarea>
+          </div>
+          
+          <div class="form-checkbox">
+            <input type="checkbox" 
+                   id="newsletter" 
+                   [(ngModel)]="contact.newsletter" 
+                   name="newsletter">
+            <label for="newsletter">
+              Je souhaite recevoir les newsletters et offres spéciales de PowerGym
+            </label>
+          </div>
+          
+          <!-- Message de succès -->
+          <div class="success-alert" *ngIf="showSuccess">
+            <i class="bi bi-check-circle"></i>
+            <div class="alert-content">
+              <h4>Message envoyé !</h4>
+              <p>Merci pour votre message. Nous vous répondrons dans les plus brefs délais.</p>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" 
+                    class="btn-orange" 
+                    [disabled]="!contactForm.valid || isSubmitting">
+              <span *ngIf="!isSubmitting">
+                <i class="bi bi-send"></i>
+                Envoyer le message
+              </span>
+              <span *ngIf="isSubmitting">
+                <i class="bi bi-hourglass-split"></i>
+                Envoi en cours...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Informations de contact -->
+      <div class="contact-info-container">
+     <!-- Coordonnées -->
+        <div class="info-card">
+          <div class="info-header">
+            <i class="bi bi-geo-alt-fill"></i>
+            <h3>Nous trouver</h3>
+          </div>
+          <div class="info-content">
+            <p class="info-text">
+              <strong>Power House 61</strong><br>
+              شارع الجيش الملكي، حي الضحى<br>
+              Beni Mellal, Maroc
+            </p>
+            <p class="info-note">
+              <i class="bi bi-telephone-fill"></i> 06 51 97 49 63
+            </p>
+            <p class="info-note">
+              <i class="bi bi-instagram"></i> <a href="https://www.instagram.com/power.house61" target="_blank">Power.House61</a>
+            </p>
+            <p class="info-note">
+              <i class="bi bi-envelope-fill"></i> 
+            <a [href]="'mailto:' + email">{{ email }}</a>
+
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Horaires déjà adaptés à 24h/7 pour Premium -->
+
+        <!-- Horaires -->
+        <div class="info-card">
+          <div class="info-header">
+            <i class="bi bi-clock-fill"></i>
+            <h3>Horaires d'ouverture</h3>
+          </div>
+          <div class="info-content">
+            <div class="horaires-list">
+              <div class="horaire-item" *ngFor="let horaire of horaires">
+                <span class="jour">{{horaire.jour}}</span>
+                <span class="heures">{{horaire.heures}}</span>
+              </div>
+              <div class="horaire-premium">
+                <span class="label">Abonnés Premium</span>
+                <span class="value">24h/24 7j/7</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact direct -->
+        <div class="info-card">
+          <div class="info-header">
+            <i class="bi bi-chat-dots-fill"></i>
+            <h3>Contact direct</h3>
+          </div>
+          <div class="info-content">
+            <div class="contacts-list">
+              <div class="contact-item" *ngFor="let item of contacts">
+                <i [class]="item.icon"></i>
+                <span>{{item.text}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Réseaux sociaux -->
+        <div class="social-card">
+          <h3 class="social-title">Suivez-nous</h3>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="bi bi-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="bi bi-youtube"></i>
+            </a>
+            <a href="#" class="social-link">
+              <i class="bi bi-tiktok"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Carte -->
+<section class="map-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Notre emplacement</h2>
+      <p class="section-subtitle">Venez nous rencontrer dans notre salle de sport</p>
+    </div>
+    
+    <div class="map-container">
+      <div class="map-placeholder">
+        <div class="map-content">
+          <i class="bi bi-geo-alt"></i>
+          <h3>PowerGym Paris</h3>
+          <p>123 Avenue du Sport, 75015 Paris</p>
+          <div class="map-actions">
+            <a href="#" class="btn-outline-orange">
+              <i class="bi bi-compass"></i>
+              Itinéraire
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ rapide -->
+<section class="faq-section section-padding">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Questions fréquentes</h2>
+      <p class="section-subtitle">Trouvez rapidement des réponses à vos questions</p>
+    </div>
+    
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Comment réserver un cours ?</h3>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Vous pouvez réserver directement depuis notre site dans la section "Réservation" ou via l'application mobile.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Puis-je annuler ma réservation ?</h3>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, vous pouvez annuler jusqu'à 24h avant le cours sans frais depuis votre espace membre.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Y a-t-il un parking ?</h3>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, nous disposons d'un parking gratuit pour nos membres avec 50 places disponibles.</p>
+        </div>
+      </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">
+          <h3>Dois-je apporter ma serviette ?</h3>
+          <i class="bi bi-chevron-down"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Oui, chaque membre doit apporter sa serviette. Des serviettes sont également disponibles à la location.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,267 @@
+/* Hero Section */
+.hero-section {
+  padding: 100px 0 50px;
+  background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--off-white);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Abonnements Section */
+.abonnements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+/* Comparatif Table */
+.comparatif-table {
+  overflow-x: auto;
+  margin-top: 40px;
+}
+
+.comparatif-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--medium-gray);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.comparatif-table thead {
+  background: var(--black);
+}
+
+.comparatif-table th {
+  padding: 20px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--white);
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.comparatif-table th.highlighted {
+  background: var(--primary-orange);
+  color: var(--white);
+}
+
+.comparatif-table td {
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--off-white);
+}
+
+.comparatif-table td.highlighted {
+  background: rgba(255, 107, 0, 0.1);
+}
+
+.comparatif-table i {
+  font-size: 20px;
+}
+
+.comparatif-table .bi-check-circle {
+  color: #4CAF50;
+}
+
+.comparatif-table .bi-x-circle {
+  color: #F44336;
+}
+
+/* Avantages */
+.avantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.avantage-card {
+  text-align: center;
+  padding: 30px 20px;
+  background: var(--medium-gray);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.avantage-card:hover {
+  transform: translateY(-5px);
+  border: 1px solid var(--primary-orange);
+}
+
+.avantage-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  background: rgba(255, 107, 0, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avantage-icon i {
+  font-size: 28px;
+  color: var(--primary-orange);
+}
+
+.avantage-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.avantage-description {
+  color: var(--off-white);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* FAQ */
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--medium-gray);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+}
+
+.faq-question {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+  background: rgba(255, 107, 0, 0.05);
+}
+
+.faq-question h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0;
+}
+
+.faq-question i {
+  color: var(--primary-orange);
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 20px;
+  max-height: 500px;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer p {
+  color: var(--off-white);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.cta-text {
+  font-size: 18px;
+  color: var(--off-white);
+  margin-bottom: 40px;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 36px;
+  }
+  
+  .comparatif-table {
+    font-size: 14px;
+  }
+  
+  .comparatif-table th,
+  .comparatif-table td {
+    padding: 15px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 32px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .abonnements-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .avantages-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-actions .btn-orange,
+  .cta-actions .btn-outline-orange {
+    width: 100%;
+    max-width: 300px;
+  }
+}

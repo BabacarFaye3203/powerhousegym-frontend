@@ -1,0 +1,161 @@
+<!-- Top Bar -->
+<div class="top-bar">
+  <div class="container-custom">
+    <div class="top-bar-content">
+      <div class="contact-info">
+        <span class="info-item">
+          <i class="bi bi-telephone"></i>
+          01 23 45 67 89
+        </span>
+        <span class="info-item">
+          <i class="bi bi-clock"></i>
+          Ouvert 7j/7 - 6h à 23h
+        </span>
+      </div>
+      <div class="quick-links">
+        <a href="#" class="quick-link">
+          <i class="bi bi-info-circle"></i> FAQ
+        </a>
+        <a href="#" class="quick-link">
+          <i class="bi bi-newspaper"></i> Blog
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main Navigation -->
+<nav class="main-nav" [class.scrolled]="isScrolled">
+  <div class="container-custom">
+    <div class="nav-content">
+      <!-- Logo -->
+      <a routerLink="/" class="logo">
+        <div class="logo-icon">
+          <i class="bi bi-lightning-charge-fill"></i>
+        </div>
+        <div class="logo-text">
+          <span>POWER</span>
+          <span class="logo-highlight">GYM</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <div class="nav-desktop">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/abonnements" routerLinkActive="active">
+              Abonnements
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/cours" routerLinkActive="active">
+              Cours
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/reservation" routerLinkActive="active">
+              Réservation
+            </a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/contact" routerLinkActive="active">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- User Actions -->
+      <div class="nav-actions">
+        <!-- Search -->
+        <div class="search-container">
+          <button class="search-toggle" (click)="performSearch()">
+            <i class="bi bi-search"></i>
+          </button>
+          <input type="text" 
+                 class="search-input" 
+                 placeholder="Rechercher..."
+                 [(ngModel)]="searchQuery"
+                 (keyup.enter)="performSearch()">
+        </div>
+
+        <!-- User Menu -->
+        <div class="user-menu">
+          <button class="user-toggle">
+            <div class="user-avatar">
+              <i class="bi bi-person"></i>
+            </div>
+            <span>Mon compte</span>
+          </button>
+        </div>
+
+        <!-- CTA Button -->
+        <a routerLink="/abonnements" class="btn-orange nav-cta">
+          <i class="bi bi-lightning-charge"></i>
+          S'inscrire
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" (click)="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div class="nav-mobile" [class.active]="isMenuOpen">
+    <div class="mobile-menu">
+      <ul class="mobile-nav-list">
+        <li class="mobile-nav-item">
+          <a routerLink="/" (click)="toggleMenu()" routerLinkActive="active">
+            <i class="bi bi-house-door"></i>
+            Accueil
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a routerLink="/abonnements" (click)="toggleMenu()" routerLinkActive="active">
+            <i class="bi bi-credit-card"></i>
+            Abonnements
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a routerLink="/cours" (click)="toggleMenu()" routerLinkActive="active">
+            <i class="bi bi-calendar-week"></i>
+            Cours
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a routerLink="/reservation" (click)="toggleMenu()" routerLinkActive="active">
+            <i class="bi bi-calendar-check"></i>
+            Réservation
+          </a>
+        </li>
+        <li class="mobile-nav-item">
+          <a routerLink="/contact" (click)="toggleMenu()" routerLinkActive="active">
+            <i class="bi bi-envelope"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
+      
+      <div class="mobile-actions">
+        <a routerLink="/login" class="btn-outline-orange" (click)="toggleMenu()">
+          <i class="bi bi-box-arrow-in-right"></i>
+          Connexion
+        </a>
+        <a routerLink="/register" class="btn-orange" (click)="toggleMenu()">
+          <i class="bi bi-person-plus"></i>
+          Inscription
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

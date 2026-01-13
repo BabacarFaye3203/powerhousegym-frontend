@@ -1,0 +1,243 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container-custom">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Réservez votre <span class="text-gradient-orange">cours</span>
+        </h1>
+        <p class="hero-subtitle">
+          Sélectionnez un cours, choisissez une date et réservez votre place en quelques clics.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Réservation Container -->
+<section class="reservation-section section-padding">
+  <div class="container-custom">
+    <div class="reservation-container">
+      <!-- Étape 1 : Sélection du cours -->
+      <div class="reservation-step">
+        <div class="step-header">
+          <span class="step-number">1</span>
+          <h2 class="step-title">Sélectionnez un cours</h2>
+        </div>
+        
+        <div class="cours-selection">
+          <div class="cours-list">
+            <div class="cours-item" 
+                 *ngFor="let cours of cours"
+                 [class.selected]="selectedCours?.id === cours.id"
+                 (click)="selectCours(cours)">
+              <div class="cours-info">
+                <h3 class="cours-name">{{cours.title}}</h3>
+                <div class="cours-details">
+                  <span class="cours-category">{{cours.category}}</span>
+                  <span class="cours-coach">
+                    <i class="bi bi-person"></i>
+                    {{cours.coach}}
+                  </span>
+                  <span class="cours-places">
+                    <i class="bi bi-people"></i>
+                    {{cours.places}} places max
+                  </span>
+                </div>
+              </div>
+              <div class="cours-action">
+                <button class="btn-select">
+                  {{selectedCours?.id === cours.id ? 'Sélectionné' : 'Sélectionner'}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 : Sélection de l'horaire -->
+      <div class="reservation-step" *ngIf="selectedCours">
+        <div class="step-header">
+          <span class="step-number">2</span>
+          <h2 class="step-title">Choisissez une date et heure</h2>
+        </div>
+        
+        <div class="horaire-selection">
+          <div class="horaire-list">
+            <div class="horaire-item"
+                 *ngFor="let horaire of selectedCours.horaires"
+                 [class]="getHoraireClass(horaire)"
+                 (click)="selectHoraire(horaire)">
+              <div class="horaire-info">
+                <div class="horaire-date">
+                  <i class="bi bi-calendar"></i>
+                  {{formatDate(horaire.date)}}
+                </div>
+                <div class="horaire-time">
+                  <i class="bi bi-clock"></i>
+                  {{horaire.heure}}
+                </div>
+              </div>
+              <div class="horaire-status">
+                <span class="status-text">{{getHorairePlaces(horaire)}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 : Informations personnelles -->
+      <div class="reservation-step" *ngIf="selectedCours && reservation.date">
+        <div class="step-header">
+          <span class="step-number">3</span>
+          <h2 class="step-title">Vos informations</h2>
+        </div>
+        
+        <form class="reservation-form" (ngSubmit)="submitReservation()">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Nom complet *</label>
+              <input type="text" 
+                     class="form-input" 
+                     [(ngModel)]="reservation.nom" 
+                     name="nom"
+                     placeholder="Votre nom et prénom"
+                     required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Email *</label>
+              <input type="email" 
+                     class="form-input" 
+                     [(ngModel)]="reservation.email" 
+                     name="email"
+                     placeholder="votre@email.com"
+                     required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Téléphone</label>
+              <input type="tel" 
+                     class="form-input" 
+                     [(ngModel)]="reservation.telephone" 
+                     name="telephone"
+                     placeholder="06 12 34 56 78">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Nombre de participants</label>
+              <select class="form-select" 
+                      [(ngModel)]="reservation.participants" 
+                      name="participants">
+                <option value="1">1 personne</option>
+                <option value="2">2 personnes</option>
+                <option value="3">3 personnes</option>
+                <option value="4">4 personnes</option>
+              </select>
+            </div>
+            
+            <div class="form-group full-width">
+              <label class="form-label">Commentaire (optionnel)</label>
+              <textarea class="form-textarea" 
+                        [(ngModel)]="reservation.commentaire" 
+                        name="commentaire"
+                        placeholder="Informations complémentaires..."></textarea>
+            </div>
+          </div>
+          
+          <!-- Récapitulatif -->
+          <div class="recap" *ngIf="selectedCours && reservation.date">
+            <h3 class="recap-title">Récapitulatif</h3>
+            <div class="recap-content">
+              <div class="recap-item">
+                <span>Cours :</span>
+                <strong>{{selectedCours.title}}</strong>
+              </div>
+              <div class="recap-item">
+                <span>Coach :</span>
+                <strong>{{selectedCours.coach}}</strong>
+              </div>
+              <div class="recap-item">
+                <span>Date :</span>
+                <strong>{{formatDate(reservation.date)}} à {{reservation.heure}}</strong>
+              </div>
+              <div class="recap-item">
+                <span>Participants :</span>
+                <strong>{{reservation.participants}} personne(s)</strong>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bouton de soumission -->
+          <div class="form-actions">
+            <button type="submit" 
+                    class="btn-orange" 
+                    [disabled]="isSubmitting">
+              <span *ngIf="!isSubmitting">
+                <i class="bi bi-check-circle"></i>
+                Confirmer la réservation
+              </span>
+              <span *ngIf="isSubmitting">
+                <i class="bi bi-hourglass-split"></i>
+                Réservation en cours...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Message de succès -->
+      <div class="success-message" *ngIf="reservationSuccess">
+        <div class="success-content">
+          <i class="bi bi-check-circle"></i>
+          <h3>Réservation confirmée !</h3>
+          <p>Votre réservation a été enregistrée avec succès. Vous recevrez un email de confirmation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Infos pratiques -->
+<section class="infos-section section-padding bg-gradient-dark">
+  <div class="container-custom">
+    <div class="section-header">
+      <h2 class="section-title">Informations pratiques</h2>
+      <p class="section-subtitle">Tout ce que vous devez savoir avant votre séance</p>
+    </div>
+    
+    <div class="infos-grid">
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-clock-history"></i>
+        </div>
+        <h3>Horaires d'arrivée</h3>
+        <p>Présentez-vous 15 minutes avant le début du cours pour vous équiper et vous échauffer.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-x-circle"></i>
+        </div>
+        <h3>Annulation</h3>
+        <p>Vous pouvez annuler jusqu'à 24h avant le cours sans frais. Au-delà, la séance est due.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-shield-check"></i>
+        </div>
+        <h3>Sécurité</h3>
+        <p>Nos coachs sont certifiés premiers secours. Les équipements sont contrôlés régulièrement.</p>
+      </div>
+      
+      <div class="info-card">
+        <div class="info-icon">
+          <i class="bi bi-question-circle"></i>
+        </div>
+        <h3>Questions ?</h3>
+        <p>Contactez-nous au 01 23 45 67 89 ou par email à contact@powergym.fr</p>
+      </div>
+    </div>
+  </div>
+</section>
